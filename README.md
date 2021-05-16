@@ -1,2 +1,2 @@
-# Calculator
+# BMI-Calculator
 Created with CodeSandbox

@@ -8,15 +8,7 @@ function Clickable(props) {
         {props.val}
       </Button>
     );
-  }
-  // else if(props.cName==="equalsButton"){
-  //   return (
-  //     <Button id={props.cName} className="valButton">
-  //       {props.val}
-  //     </Button>
-  //   );
-  // }
-  else {
+  } else {
     return <Button className="valButton">{props.val}</Button>;
   }
 }

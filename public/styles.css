@@ -9,25 +9,29 @@
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: white;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 h3 {
   color: #a7a7a7;
   text-align: end;
   padding: 0 31px;
+  margin: 35px 0 5px 0;
 }
 h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   text-align: end;
   padding: 0 31px;
+  margin-bottom: 20px;
 }
 .container {
-  margin: 70px 35%;
+  margin: 70px 0;
   padding-top: 5%;
-  height: 500px;
-  width: 350px;
+  height: 540px;
+  width: 330px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -41,7 +45,7 @@ h1 {
   /* align-self: center; */
   justify-content: space-evenly;
   height: 350px;
-  width: 350px;
+  width: 330px;
 }
 .inner {
   display: flex;
@@ -51,10 +55,18 @@ h1 {
 .inner .valButton {
   color: #a7a7a7;
   font-size: 1.5em;
+  transform: scaleY(1.1);
 }
 #col4 .valButton {
-  color: yellow;
+  color: #ffc107;
 }
-#backspaceIcon {
-  padding: 15px;
+#icons {
+  padding: 14px;
+}
+#whiteIcons {
+  color: white;
+}
+#col4 #equalsButton {
+  background-color: #ffc107;
+  color: white;
 }

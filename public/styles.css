@@ -13,13 +13,48 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+h3 {
+  color: #a7a7a7;
+  text-align: end;
+  padding: 0 31px;
+}
+h1 {
+  font-size: 3em;
+  text-align: end;
+  padding: 0 31px;
+}
 .container {
-  margin: 0;
+  margin: 70px 35%;
+  padding-top: 5%;
+  height: 500px;
+  width: 350px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   justify-self: center;
-  border: 2px solid white;
+  border-radius: 10px;
+  background: black;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  /* align-self: center; */
+  justify-content: space-evenly;
+  height: 350px;
+  width: 350px;
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.inner .valButton {
+  color: #a7a7a7;
+  font-size: 1.5em;
+}
+#col4 .valButton {
+  color: yellow;
+}
+#backspaceIcon {
+  padding: 15px;
 }

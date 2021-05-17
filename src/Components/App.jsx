@@ -1,6 +1,6 @@
 import React from "react";
 import Clickables from "./Clickables";
-import BackspaceIcon from "@material-ui/icons/Backspace";
+
 function App() {
   return (
     <div className="container">
@@ -17,7 +17,10 @@ function App() {
         <div className="inner">
           <Clickables
             val={
-              <img src="https://img.icons8.com/material/24/ffffff/square-root--v1.png" />
+              <img
+                src="https://img.icons8.com/material/24/ffffff/square-root--v1.png"
+                alt="square root"
+              />
             }
             cName="icons"
           />
@@ -30,7 +33,10 @@ function App() {
         <div className="inner">
           <Clickables
             val={
-              <img src="https://img.icons8.com/material-outlined/24/ffffff/square-number.png" />
+              <img
+                src="https://img.icons8.com/material-outlined/24/ffffff/square-number.png"
+                alt="square of number"
+              />
             }
             cName="icons"
           />
@@ -39,7 +45,10 @@ function App() {
           <Clickables val="3" />
           <Clickables
             val={
-              <img src="https://img.icons8.com/material/24/ffffff/clear-symbol--v1.png" />
+              <img
+                src="https://img.icons8.com/material/24/a7a7a7/clear-symbol--v1.png"
+                alt="clear symbol"
+              />
             }
             cName="icons"
           />

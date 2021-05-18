@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Clickables from "./Clickables";
 
 function App() {
+  const [str, updateStr] = useState("");
+  const [arr, updateArr] = useState([]);
+
+  function displayCalc(val) {
+    updateArr((prevValue) => {
+      return [...prevValue, val];
+    });
+
+    // console.log(arr);
+  }
+  function displayResult() {
+    updateStr(() => arr.join(""));
+    console.log("test:" + str);
+  }
   return (
     <div className="container">
-      <h3>1_435+353%56</h3>
-      <h1>456</h1>
+      <h3>{str}</h3>
+      <h1>{}</h1>
       <div className="main">
         <div className="inner">
-          <Clickables val="C" cName="whiteIcons" />
-          <Clickables val="7" />
-          <Clickables val="4" />
-          <Clickables val="1" />
-          <Clickables val="0" />
+          <Clickables val="C" handleClick={displayCalc} cName="whiteIcons" />
+          <Clickables val="7" handleClick={displayCalc} />
+          <Clickables val="4" handleClick={displayCalc} />
+          <Clickables val="1" handleClick={displayCalc} />
+          <Clickables val="0" handleClick={displayCalc} />
         </div>
         <div className="inner">
           <Clickables
@@ -22,13 +36,14 @@ function App() {
                 alt="square root"
               />
             }
+            handleClick={displayCalc}
             cName="icons"
           />
 
-          <Clickables val="8" />
-          <Clickables val="5" />
-          <Clickables val="2" />
-          <Clickables val="." />
+          <Clickables val="8" handleClick={displayCalc} />
+          <Clickables val="5" handleClick={displayCalc} />
+          <Clickables val="2" handleClick={displayCalc} />
+          <Clickables val="." handleClick={displayCalc} />
         </div>
         <div className="inner">
           <Clickables
@@ -38,11 +53,12 @@ function App() {
                 alt="square of number"
               />
             }
+            handleClick={displayCalc}
             cName="icons"
           />
-          <Clickables val="9" />
-          <Clickables val="6" />
-          <Clickables val="3" />
+          <Clickables val="9" handleClick={displayCalc} />
+          <Clickables val="6" handleClick={displayCalc} />
+          <Clickables val="3" handleClick={displayCalc} />
           <Clickables
             val={
               <img
@@ -50,17 +66,19 @@ function App() {
                 alt="clear symbol"
               />
             }
+            handleClick={displayCalc}
             cName="icons"
           />
         </div>
         <div className="inner" id="col4">
-          <Clickables val="/" />
-          <Clickables val="X" />
-          <Clickables val="-" />
-          <Clickables val="+" />
+          <Clickables val="/" handleClick={displayCalc} />
+          <Clickables val="x" handleClick={displayCalc} />
+          <Clickables val="-" handleClick={displayCalc} />
+          <Clickables val="+" handleClick={displayCalc} />
           <Clickables val="=" cName="equalsButton" />
         </div>
       </div>
+      <button onClick={displayResult}>test</button>
     </div>
   );
 }

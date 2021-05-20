@@ -52,7 +52,7 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly;
 }
-.inner .valButton {
+.inner Button {
   color: #a7a7a7;
   font-size: 1.5em;
   transform: scaleY(1.1);

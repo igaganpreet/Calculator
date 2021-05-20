@@ -1,27 +1,38 @@
 import React, { useState } from "react";
-// import Clickables from "./Clickables";
 import Button from "@material-ui/core/Button";
 
 function App() {
-  // const [str, updateStr] = useState("");
-  // const [arr, updateArr] = useState([]);
+  const [str, updateStr] = useState(" ");
+  const [arr, updateArr] = useState([]);
   function handleClick(e) {
-    console.log(e.currentTarget.value);
+    if (e.currentTarget.value === "back") {
+      updateArr((prevValue) => {
+        const array = arr.slice(0, -1);
+        updateStr(() => {
+          const value = array.join("");
+          return value;
+        });
+        return array;
+      });
+    } else if (e.currentTarget.value === "C") {
+      updateArr([]);
+      updateStr(" ");
+    } else {
+      updateArr((prevValue) => {
+        const array = [...prevValue, e.currentTarget.value];
+        updateStr(() => {
+          const value = array.join("");
+          return value;
+        });
+        return array;
+      });
+    }
   }
-  // function displayCalc(val) {
-  //   updateArr((prevValue) => {
-  //     return [...prevValue, val];
-  //   });
 
-  //   console.log(arr);
-  // }
-  // function displayResult() {
-  //   updateStr(() => arr.join(""));
-  //   console.log("test:" + str);
-  // }
+  function handleCalculation() {}
   return (
     <div className="container">
-      <h3>hello</h3>
+      <h3>{str}</h3>
       <h1>{}</h1>
       <div className="main">
         <div className="inner">
@@ -42,16 +53,7 @@ function App() {
           </Button>
         </div>
         <div className="inner">
-          <Button
-            value={
-              <img
-                src="https://img.icons8.com/material/24/ffffff/square-root--v1.png"
-                alt="square root"
-              />
-            }
-            id="icons"
-            onClick={handleClick}
-          >
+          <Button value="sqr root" id="icons" onClick={handleClick}>
             <img
               src="https://img.icons8.com/material/24/ffffff/square-root--v1.png"
               alt="square root"
@@ -72,16 +74,7 @@ function App() {
           </Button>
         </div>
         <div className="inner">
-          <Button
-            value={
-              <img
-                src="https://img.icons8.com/material-outlined/24/ffffff/square-number.png"
-                alt="square of number"
-              />
-            }
-            onClick={handleClick}
-            id="icons"
-          >
+          <Button value="^2" onClick={handleClick} id="icons">
             <img
               src="https://img.icons8.com/material-outlined/24/ffffff/square-number.png"
               alt="square of number"
@@ -96,19 +89,10 @@ function App() {
           <Button value="3" onClick={handleClick}>
             3
           </Button>
-          <Button
-            value={
-              <img
-                src="https://img.icons8.com/material/24/a7a7a7/clear-symbol--v1.png"
-                alt="clear symbol"
-              />
-            }
-            id="icons"
-            onClick={handleClick}
-          >
+          <Button value="back" id="icons" onClick={handleClick}>
             <img
               src="https://img.icons8.com/material/24/a7a7a7/clear-symbol--v1.png"
-              alt="clear symbol"
+              alt="back symbol"
             />
           </Button>
         </div>
@@ -125,12 +109,11 @@ function App() {
           <Button value="+" onClick={handleClick}>
             +
           </Button>
-          <Button val="=" id="equalsButton" onClick={handleClick}>
+          <Button val="=" id="equalsButton" onClick={handleCalculation}>
             =
           </Button>
         </div>
       </div>
-      {/* <button onClick={displayResult}>test</button> */}
     </div>
   );
 }

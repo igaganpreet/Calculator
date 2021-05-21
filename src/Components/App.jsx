@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 
 function App() {
-  const [str, updateStr] = useState(" ");
+  const [str, updateStr] = useState("");
   const [arr, updateArr] = useState([]);
+  const [result, updateResult] = useState("0");
   function handleClick(e) {
     if (e.currentTarget.value === "back") {
       updateArr((prevValue) => {
@@ -17,6 +18,7 @@ function App() {
     } else if (e.currentTarget.value === "C") {
       updateArr([]);
       updateStr(" ");
+      updateResult("0");
     } else {
       updateArr((prevValue) => {
         const array = [...prevValue, e.currentTarget.value];
@@ -29,11 +31,22 @@ function App() {
     }
   }
 
-  function handleCalculation() {}
+  function handleCalculation() {
+    if (
+      arr.includes("+") ||
+      arr.includes("-") ||
+      arr.includes("*") ||
+      arr.includes("/")
+    ) {
+      updateResult(eval(str));
+    } else {
+      updateResult(str);
+    }
+  }
   return (
     <div className="container">
       <h3>{str}</h3>
-      <h1>{}</h1>
+      <h1>{result}</h1>
       <div className="main">
         <div className="inner">
           <Button value="C" id="whiteIcons" onClick={handleClick}>
@@ -53,11 +66,8 @@ function App() {
           </Button>
         </div>
         <div className="inner">
-          <Button value="sqr root" id="icons" onClick={handleClick}>
-            <img
-              src="https://img.icons8.com/material/24/ffffff/square-root--v1.png"
-              alt="square root"
-            />
+          <Button value="(" onClick={handleClick}>
+            (
           </Button>
 
           <Button value="8" onClick={handleClick}>
@@ -74,11 +84,8 @@ function App() {
           </Button>
         </div>
         <div className="inner">
-          <Button value="^2" onClick={handleClick} id="icons">
-            <img
-              src="https://img.icons8.com/material-outlined/24/ffffff/square-number.png"
-              alt="square of number"
-            />
+          <Button value=")" onClick={handleClick}>
+            )
           </Button>
           <Button value="9" onClick={handleClick}>
             9
@@ -89,6 +96,7 @@ function App() {
           <Button value="3" onClick={handleClick}>
             3
           </Button>
+
           <Button value="back" id="icons" onClick={handleClick}>
             <img
               src="https://img.icons8.com/material/24/a7a7a7/clear-symbol--v1.png"
@@ -100,7 +108,7 @@ function App() {
           <Button value="/" onClick={handleClick}>
             /
           </Button>
-          <Button value="x" onClick={handleClick}>
+          <Button value="*" onClick={handleClick}>
             x
           </Button>
           <Button value="-" onClick={handleClick}>

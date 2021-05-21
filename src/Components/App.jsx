@@ -21,12 +21,24 @@ function App() {
       updateResult("0");
     } else {
       updateArr((prevValue) => {
-        const array = [...prevValue, e.currentTarget.value];
-        updateStr(() => {
-          const value = array.join("");
-          return value;
-        });
-        return array;
+        if (arr[arr.length - 1] === "-" && e.currentTarget.value === "-") {
+          const testArray = arr.slice(0, -1);
+
+          const array = [...testArray, "+"];
+
+          updateStr(() => {
+            const value = array.join("");
+            return value;
+          });
+          return array;
+        } else {
+          const array = [...prevValue, e.currentTarget.value];
+          updateStr(() => {
+            const value = array.join("");
+            return value;
+          });
+          return array;
+        }
       });
     }
   }
